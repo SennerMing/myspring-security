@@ -20,7 +20,6 @@ public class UroleApplication {
 //    @Resource
 //    SysUserMapper sysUserMapper;
 
-
     public static void main(String[] args) {
         SpringApplication.run(UroleApplication.class, args);
     }
