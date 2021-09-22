@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.musician.uroleajax.dao.SysUserMapper">
+
+    <resultMap id="sysUser" type="club.musician.uroleajax.entity.SysUser">
+        <id column="id" property="id"/>
+        <id column="username" property="username"/>
+        <id column="password" property="password"/>
+        <id column="realname" property="realname" javaType="string"/>
+        <id column="isexpire" property="isExpired"/>
+        <id column="isenable" property="isEnabled"/>
+        <id column="islock" property="isLocked"/>
+        <id column="iscredentials" property="isCredentials"/>
+        <id column="createtime" property="createTime"/>
+        <id column="logintime" property="loginTime"/>
+    </resultMap>
+
+    <insert id="insertSysUser" parameterType="club.musician.uroleajax.entity.SysUser">
+        insert into sys_user (username, password, realname, isexpire, isenable, islock, iscredentials, createtime, logintime)
+        values (#{username},#{password},#{realname},#{isExpired},#{isEnabled},#{isLocked},#{isCredentials},#{createTime},#{loginTime});
+
+    </insert>
+
+
+    <select id="selectSysUser" resultMap="sysUser">
+        select id, username, password, realname, isexpire, isenable, islock, iscredentials, createtime, logintime from sys_user
+        where username = #{username}
+    </select>
+
+</mapper>

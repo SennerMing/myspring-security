@@ -1,0 +1,11 @@
+uroleajax\controller\AccessController.class
+uroleajax\common\MyFailureHandler.class
+uroleajax\common\MySuccessHandler.class
+uroleajax\controller\IndexController.class
+uroleajax\entity\SysUser.class
+uroleajax\entity\SysRole.class
+uroleajax\dao\RoleMapper.class
+uroleajax\dao\SysUserMapper.class
+uroleajax\config\MySecurityConfig.class
+uroleajax\UroleApplication.class
+uroleajax\service\JdbcUserDetailsService.class

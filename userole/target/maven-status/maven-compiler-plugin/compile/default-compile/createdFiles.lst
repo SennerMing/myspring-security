@@ -1,0 +1,9 @@
+club\musician\userroleajax\dao\RoleMapper.class
+club\musician\userroleajax\controller\AccessController.class
+club\musician\userroleajax\dao\SysUserMapper.class
+club\musician\userroleajax\UserRoleApplication.class
+club\musician\userroleajax\entity\SysUser.class
+club\musician\userroleajax\config\MySecurityConfig.class
+club\musician\userroleajax\controller\IndexController.class
+club\musician\userroleajax\service\JdbcUserDetailsService.class
+club\musician\userroleajax\entity\SysRole.class

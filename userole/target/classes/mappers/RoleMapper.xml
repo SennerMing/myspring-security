@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.musician.uroleajax.dao.RoleMapper">
+    <resultMap id="roleMap" type="club.musician.uroleajax.entity.SysRole">
+        <id column="id" property="id"/>
+        <result column="rolename" property="name"/>
+        <result column="rolememo" property="memo"/>
+    </resultMap>
+
+    <select id="selectRoleByUser" resultMap="roleMap">
+        select r.id,r.rolename,r.rolememo from sys_user_role ur,sys_role r where ur.roleid = r.id and ur.userid =#{userId}
+    </select>
+
+</mapper>

@@ -1,0 +1,4 @@
+club\musician\security\JdbcApplication.class
+club\musician\security\config\ApplicationConfig.class
+club\musician\security\config\MySecurityConfig.class
+club\musician\security\controller\HelloController.class

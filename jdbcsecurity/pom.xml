@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>club.musician</groupId>
+  <artifactId>jdbcsecurity</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <!--
+      实现步骤，使用InMemoryUserDetailsManager管理内存中用户信息
+      1.新建manven项目
+
+      2.加入依赖gav
+        spring-boot parent
+        spring-boot-security-starter
+        spring-boot-web-starter
+        spring-jdbc
+        mysql-java-connector
+
+      3.创建应用的配置类
+        1）创建密码的处理类
+        2）创建JdbcUserDetailsService对象
+        3）创建用户，表在 org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl的同级目录的users.ddl
+        create table users(username varchar(50) not null primary key,password varchar(500) not null,enabled boolean not null);
+
+        create table authorities (username varchar(50) not null,authority varchar(50) not null,
+        constraint fk_authorities_users foreign key(username) references users(username));
+
+        create unique index ix_auth_username on authorities (username,authority);
+        4）获取数据库中users的数据
+
+      4.创建一个security的配置，自定义安全配置信息，指定JdbcUserDetailsService类
+
+      5.修改application.proeprties文件
+        连接数据库，配置数据源DataSource
+
+      6.进行测试
+     -->
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>2.4.5</version>
+  </parent>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-security</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-jdbc</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+    </dependency>
+
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.11</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+      </plugins>
+  </build>
+</project>

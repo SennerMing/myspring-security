@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/js/jquery.js">
+        $(function(){
+            $("#btnLogin").click(function(){
+                var uname = $("username").val();
+                var upwd = $("password").val();
+                consolr.log("点击登录了...")
+                $.ajax({
+                    url:"/login",
+                    type:"POST",
+                    data:{
+                        "username":uname,
+                        "password":upwd
+                    },
+                    dataType:"json",
+                    success:function(resp){
+                        alert("resp");
+                    }
+                })
+            });
+        })
+
+
+    </script>
+</head>
+<body>
+
+    <p>自定义的登录界面 Ajax</p>
+    <div>
+        用户名：<input type="text" id="username" value=""/> <br/>
+        密&nbsp;码：<input type="password" id="password"><br/>
+        <input id="btnLogin" value="登录">
+    </div>
+
+</body>
+</html>

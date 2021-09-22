@@ -1,0 +1,4 @@
+club\musician\memory\controller\HelloController.class
+club\musician\memory\config\ApplicationConfig.class
+club\musician\memory\config\MySecurityConfig.class
+club\musician\memory\MemoryApplication.class
